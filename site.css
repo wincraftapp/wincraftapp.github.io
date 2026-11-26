@@ -54,6 +54,8 @@ section.dark .lede { color: var(--mute-dark); }
 .step { background: var(--card-dark); border-radius: 18px; padding: 20px; }
 .step .shot { aspect-ratio: 9 / 14; border-radius: 12px; overflow: hidden; background: #2c2c2e; display: grid; place-items: center; }
 .step .shot img { width: 100%; height: 100%; object-fit: cover; object-position: top; }
+.step .shot--paper { background: #fff; }
+.step .shot--paper img { object-fit: contain; object-position: center; }
 .step h3 { font-size: 19px; font-weight: 600; margin-top: 16px; }
 .step p { color: #86868b; font-size: 15px; margin-top: 4px; }
 .meter { width: 44%; aspect-ratio: 15 / 33; border-radius: 20px; background: linear-gradient(160deg, #48484a, #1c1c1e 60%); box-shadow: 0 0 0 1px #3a3a3c, 0 24px 40px rgba(0,0,0,.6); display: grid; grid-template-rows: auto auto 1fr; justify-items: center; padding: 16% 10%; gap: 12%; }
