@@ -74,7 +74,8 @@ section.dark .lede { color: var(--mute-dark); }
 .tour__list button small { display: block; font-size: 15px; margin-top: 2px; }
 .tour__list button[aria-selected="true"] { background: #fff; color: var(--ink); box-shadow: 0 4px 18px rgba(0,0,0,.06); }
 .tour__list button[aria-selected="true"] small { color: var(--mute); }
-.pane { width: min(420px, 100%); margin-inline: auto; border-radius: 22px; overflow: hidden; box-shadow: 0 24px 50px rgba(0,0,0,.16); }
+.pane { width: min(440px, 100%); margin-inline: auto; padding: 14px; border-radius: 40px; background: linear-gradient(145deg, #3a3a3c, #1c1c1e 45%, #2c2c2e); box-shadow: inset 0 0 0 1.5px #5a5a5e, inset 0 0 0 4px #1c1c1e, 0 30px 60px rgba(0,0,0,.22), 0 8px 16px rgba(0,0,0,.12); }
+.pane img { border-radius: 27px; }
 
 /* quotation and video */
 .paper { width: min(380px, 86vw); margin: 56px auto 0; border-radius: 12px; overflow: hidden; box-shadow: 0 24px 60px rgba(0,0,0,.15); }
