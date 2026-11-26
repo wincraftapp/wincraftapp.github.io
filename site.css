@@ -56,13 +56,12 @@ section.dark .lede { color: var(--mute-dark); }
 .step .shot img { width: 100%; height: 100%; object-fit: cover; object-position: top; }
 .step .shot--paper { background: #fff; }
 .step .shot--paper img { object-fit: contain; object-position: center; }
+.step .shot--meter { background: radial-gradient(ellipse 70% 55% at 50% 45%, #3a3a3c, #1c1c1e); }
+.step .shot--meter img { width: 62%; height: auto; object-fit: contain; }
 .step h3 { font-size: 19px; font-weight: 600; margin-top: 16px; }
 .step p { color: #86868b; font-size: 15px; margin-top: 4px; }
-.meter { width: 44%; aspect-ratio: 15 / 33; border-radius: 20px; background: linear-gradient(160deg, #48484a, #1c1c1e 60%); box-shadow: 0 0 0 1px #3a3a3c, 0 24px 40px rgba(0,0,0,.6); display: grid; grid-template-rows: auto auto 1fr; justify-items: center; padding: 16% 10%; gap: 12%; }
-.meter__lcd { width: 100%; padding: 10% 0; border-radius: 6px; background: #d9e7d2; color: #1d1d1f; text-align: center; font-weight: 600; font-size: 12px; white-space: nowrap; font-variant-numeric: tabular-nums; }
-.meter__btn { width: 42%; aspect-ratio: 1; border-radius: 50%; background: var(--blue); }
-.meter__bt { align-self: end; color: var(--link-dark); font-size: 12px; }
 .bt { text-align: center; padding: 16px; }
+.bt__icon { width: 72px; height: 72px; margin: 0 auto 16px; display: block; filter: drop-shadow(0 8px 20px rgba(10,132,255,.45)); }
 .bt strong { display: block; font-size: 24px; font-weight: 600; }
 .bt span { display: block; color: var(--mute-dark); font-size: 14px; margin-top: 6px; }
 .note { color: #86868b; font-size: 14px; margin-top: 32px; }
