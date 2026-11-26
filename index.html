@@ -8,113 +8,85 @@
 <meta property="og:title" content="WinCraft: stop typing sizes">
 <meta property="og:description" content="Measure on site, design the window, send the quotation. Join the Android beta.">
 <meta property="og:image" content="https://wincraftapp.github.io/assets/reel-poster.jpg">
-<meta name="theme-color" content="#1a2240">
+<meta name="theme-color" content="#f5f5f7">
 <link rel="icon" href="assets/logo-192.png">
-<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Wix+Madefor+Display:wght@400;500;600&family=Wix+Madefor+Text:wght@400;500;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="site.css">
 </head>
 <body>
-<header class="nav"><div class="container">
+<header class="nav"><div class="wrap">
   <a class="brand" href="#top"><img src="assets/logo-192.png" alt="">WinCraft</a>
   <nav class="nav__links" aria-label="Main">
     <a href="#how">How it works</a>
     <a href="#questions">Questions</a>
-    <a class="btn" href="#beta">Join the beta</a>
+    <a class="cta" href="#beta">Join the beta</a>
   </nav>
 </div></header>
 
 <main>
 <section class="hero" id="top">
-  <div class="hero__photo" data-slot="hero" data-alt="A valley of fog at dusk"><img src="assets/dusk-fog.jpg" alt="Sea of fog filling a valley below dark hills at sunset" width="1920" height="1254"></div>
-  <div class="hero__scrim"></div>
-  <div class="container">
-    <div>
-      <h1>Stop typing sizes.</h1>
-      <p class="lead">Measure with a laser, draw the window, send the quotation PDF.</p>
+  <div class="wrap">
+    <h1>Stop typing sizes.</h1>
+    <p class="sub">Laser in. Quotation out.</p>
+    <div class="ctas">
+      <a class="pill" href="#beta">Join the beta</a>
+      <a class="more" href="#video">Watch the video ›</a>
     </div>
-    <form id="f" class="glass signup" novalidate>
-      <div id="fields">
-        <h2 id="beta">Join the Android beta</h2>
-        <p class="sub">We add your Gmail to the Google Play test.</p>
-        <div class="field"><label for="name">Your name</label><input id="name" name="name" autocomplete="name" required></div>
-        <div class="field"><label for="gmail">Gmail address</label><input id="gmail" name="gmail" type="email" inputmode="email" autocomplete="email" required placeholder="you@gmail.com"><p class="hint">The account signed in to Play Store on your device.</p></div>
-        <div class="pair">
-          <div class="field"><label for="phone">WhatsApp</label><input id="phone" name="phone" type="tel" inputmode="tel" autocomplete="tel" placeholder="Optional"></div>
-          <div class="field"><label for="city">City</label><input id="city" name="city" autocomplete="address-level2"></div>
-        </div>
-        <div class="field"><label for="work">What best describes you?</label>
-          <select id="work" name="work">
-            <option>Window / door fabricator</option>
-            <option>Contractor or builder</option>
-            <option>Architect or interior designer</option>
-            <option>Other</option>
-          </select></div>
-        <button class="btn" type="submit">Request beta access</button>
-        <p class="small" id="msg" role="status"></p>
-        <p class="small">Used only for beta access. <a href="privacy-policy.html">Privacy policy</a></p>
-      </div>
-      <div id="done">
-        <h3>Thank you.</h3>
-        <p id="donetext">You’re on the list. We’ll add your Gmail to the Google Play beta and message you.</p>
-      </div>
-    </form>
   </div>
+  <div class="device"><img src="assets/laser-drawing.jpg" alt="Window drawing in WinCraft with width 1621 and height 1324 filled from the laser measure" width="540" height="864"></div>
 </section>
 
-<section class="band" id="how"><div class="container">
-  <div class="head">
-    <h2>From the laser to the quotation.</h2>
-    <p>One click on the meter, and the size is in the window.</p>
-  </div>
-  <div class="path">
-    <div class="stop"><figure>
-      <div class="frame meter" aria-hidden="true"><div class="meter__body"><div class="meter__lcd">1.621 m</div><div class="meter__btn"></div><div class="meter__bt">Paired</div></div></div>
-      <figcaption><span class="n">1</span><h3>Point and click</h3><p>A supported Bluetooth laser measure.</p></figcaption></figure></div>
-    <div class="stop"><figure>
-      <div class="frame link"><div><strong>Bluetooth</strong><span>Paired with WinCraft once</span></div></div>
-      <figcaption><span class="n">2</span><h3>Sent over Bluetooth</h3><p>Nothing to read out.</p></figcaption></figure></div>
-    <div class="stop"><figure>
-      <div class="frame"><img src="assets/laser-drawing.jpg" alt="Window drawing in WinCraft with width 1621 and height 1324 filled from the laser measure" width="540" height="864" loading="lazy"></div>
-      <figcaption><span class="n">3</span><h3>Into the window</h3><p>Width and height fill themselves.</p></figcaption></figure></div>
-    <div class="stop"><figure>
-      <div class="frame"><img src="assets/quote.jpg" alt="Quotation PDF page for an example project" width="700" height="991" loading="lazy"></div>
-      <figcaption><span class="n">4</span><h3>Onto the quotation</h3><p>Drawn and totalled at your rate.</p></figcaption></figure></div>
-  </div>
-  <p class="path__note">No laser? Type the width and height and watch the drawing update. Bluetooth support is limited to supported models.</p>
-</div></section>
-
-<section class="band"><div class="container tour">
-  <div>
-    <h2>A project for every site.</h2>
-    <ul class="tour__list" role="tablist" aria-label="WinCraft screens">
-      <li role="presentation"><button role="tab" aria-selected="true" data-shot="assets/01-studio.jpg"><span><b>Your studio</b><small>Every site and quotation in one place.</small></span></button></li>
-      <li role="presentation"><button role="tab" aria-selected="false" data-shot="assets/03-workspace.jpg"><span><b>The site</b><small>Client, address, map link, date and notes.</small></span></button></li>
-      <li role="presentation"><button role="tab" aria-selected="false" data-shot="assets/05-window-drawing.jpg"><span><b>The window</b><small>Sliding, casement, tilt and turn, louvres and more.</small></span></button></li>
-      <li role="presentation"><button role="tab" aria-selected="false" data-shot="assets/04-window-cards.jpg"><span><b>Every opening</b><small>By floor and room, each with its own mark.</small></span></button></li>
-    </ul>
-  </div>
-  <div class="glass pane" role="tabpanel" aria-label="Selected screen"><img id="shot" src="assets/01-studio.jpg" alt="WinCraft screen" width="540" height="960" loading="lazy"></div>
-</div></section>
-
-<section class="band"><div class="container handoff">
-  <div class="well"><img src="assets/quote.jpg" alt="Quotation PDF page for an example project" width="700" height="991" loading="lazy"></div>
-  <div>
-    <h2>Hand over a quotation, not a diary page.</h2>
-    <ul>
-      <li>Your logo, drawings, specifications and totals</li>
-      <li>GST shown inclusive or exclusive</li>
-      <li>Worksheet PDF and Excel schedules</li>
-    </ul>
-    <div class="reel">
-      <video src="assets/reel-laser.mp4" poster="assets/reel-poster.jpg" controls playsinline preload="none" aria-label="WinCraft with a Bluetooth laser measure, 45 second video"></video>
-      <div><h3>See it with a real laser</h3><p>45 seconds, from the meter to the quotation.</p></div>
+<section class="band dark" id="how"><div class="wrap">
+  <h2>From the laser<br>to the quotation.</h2>
+  <p class="lede">One click on the meter, and the size is in the window.</p>
+  <div class="steps">
+    <div class="step">
+      <div class="shot" aria-hidden="true"><div class="meter"><div class="meter__lcd">1.621 m</div><div class="meter__btn"></div><div class="meter__bt">Paired</div></div></div>
+      <h3>Point and click</h3><p>A supported Bluetooth laser measure.</p>
+    </div>
+    <div class="step">
+      <div class="shot"><div class="bt"><strong>Bluetooth</strong><span>Paired with WinCraft once</span></div></div>
+      <h3>Sent over Bluetooth</h3><p>Nothing to read out.</p>
+    </div>
+    <div class="step">
+      <div class="shot"><img src="assets/laser-drawing.jpg" alt="Window drawing with the laser sizes filled in" width="540" height="864" loading="lazy"></div>
+      <h3>Into the window</h3><p>Width and height fill themselves.</p>
+    </div>
+    <div class="step">
+      <div class="shot"><img src="assets/quote.jpg" alt="Quotation PDF page for an example project" width="700" height="991" loading="lazy"></div>
+      <h3>Onto the quotation</h3><p>Drawn and totalled at your rate.</p>
     </div>
   </div>
+  <p class="note">No laser? Type the width and height and watch the drawing update. Bluetooth support is limited to supported models.</p>
 </div></section>
 
-<section class="band" id="questions"><div class="container">
-  <div class="head"><h2>Questions</h2></div>
+<section class="band grey"><div class="wrap">
+  <h2>A project for every site.</h2>
+  <div class="tour">
+    <ul class="tour__list" role="tablist" aria-label="WinCraft screens">
+      <li role="presentation"><button role="tab" aria-selected="true" data-shot="assets/01-studio.jpg"><b>Your studio</b><small>Every site and quotation in one place.</small></button></li>
+      <li role="presentation"><button role="tab" aria-selected="false" data-shot="assets/03-workspace.jpg"><b>The site</b><small>Client, address, map link, date and notes.</small></button></li>
+      <li role="presentation"><button role="tab" aria-selected="false" data-shot="assets/05-window-drawing.jpg"><b>The window</b><small>Sliding, casement, tilt and turn, louvres and more.</small></button></li>
+      <li role="presentation"><button role="tab" aria-selected="false" data-shot="assets/04-window-cards.jpg"><b>Every opening</b><small>By floor and room, each with its own mark.</small></button></li>
+    </ul>
+    <div class="pane" role="tabpanel" aria-label="Selected screen"><img id="shot" src="assets/01-studio.jpg" alt="Your studio in WinCraft" width="540" height="960" loading="lazy"></div>
+  </div>
+</div></section>
+
+<section class="band"><div class="wrap">
+  <h2>A quotation,<br>not a diary page.</h2>
+  <p class="lede">Your logo, drawings, specifications and totals.</p>
+  <ul class="ticks"><li>GST inclusive or exclusive</li><li>Worksheet PDF</li><li>Excel schedules</li></ul>
+  <div class="paper"><img src="assets/quote.jpg" alt="Quotation PDF page for an example project" width="700" height="991" loading="lazy"></div>
+</div></section>
+
+<section class="band dark" id="video"><div class="wrap">
+  <h2>See it with a real laser.</h2>
+  <p class="lede">45 seconds, from the meter to the quotation.</p>
+  <div class="reel"><video src="assets/reel-laser.mp4" poster="assets/reel-poster.jpg" controls playsinline preload="none" aria-label="WinCraft with a Bluetooth laser measure, 45 second video"></video></div>
+</div></section>
+
+<section class="band" id="questions"><div class="wrap">
+  <h2>Questions</h2>
   <div class="qs">
     <details><summary>Which devices does the beta run on?</summary><p>Android phones and tablets. The beta is Android only for now.</p></details>
     <details><summary>Do I need a laser measure?</summary><p>No. Type the width and height and the drawing updates. A supported Bluetooth laser just fills them for you.</p></details>
@@ -122,24 +94,45 @@
     <details><summary>Where are my projects kept?</summary><p>On your device. No sign-in, no ads, with a daily backup and backup to a file you keep.</p></details>
     <details><summary>How do I join?</summary><p>Send your Gmail through the form. We add it to the Google Play test and message you.</p></details>
   </div>
-  <p class="again"><a class="btn" href="#beta">Request beta access</a></p>
+</div></section>
+
+<section class="band grey"><div class="wrap">
+  <h2 id="beta">Join the Android beta.</h2>
+  <p class="lede">We add your Gmail to the Google Play test.</p>
+  <form id="f" class="signup" novalidate>
+    <div id="fields">
+      <div class="field"><label for="name">Your name</label><input id="name" name="name" autocomplete="name" required></div>
+      <div class="field"><label for="gmail">Gmail address</label><input id="gmail" name="gmail" type="email" inputmode="email" autocomplete="email" required placeholder="you@gmail.com"><p class="hint">The account signed in to Play Store on your device.</p></div>
+      <div class="pair">
+        <div class="field"><label for="phone">WhatsApp (optional)</label><input id="phone" name="phone" type="tel" inputmode="tel" autocomplete="tel"></div>
+        <div class="field"><label for="city">City (optional)</label><input id="city" name="city" autocomplete="address-level2"></div>
+      </div>
+      <div class="field"><label for="work">What best describes you?</label>
+        <select id="work" name="work">
+          <option>Window / door fabricator</option>
+          <option>Contractor or builder</option>
+          <option>Architect or interior designer</option>
+          <option>Other</option>
+        </select></div>
+      <button class="pill" type="submit">Request beta access</button>
+      <p class="small" id="msg" role="status"></p>
+      <p class="small">Used only for beta access. <a href="privacy-policy.html">Privacy policy</a></p>
+    </div>
+    <div id="done">
+      <h3>Thank you.</h3>
+      <p id="donetext">You’re on the list. We’ll add your Gmail to the Google Play beta and message you.</p>
+    </div>
+  </form>
 </div></section>
 </main>
 
-<footer class="colophon"><div class="container">
-  <div>
-    <a class="brand" href="#top"><img src="assets/logo-192.png" alt="">WinCraft</a>
-    <p style="margin-top:var(--space-md)">WinCraft is an independent application. It is not affiliated with, sponsored by or endorsed by any third-party company named in the app. Bluetooth support is limited to supported models.</p>
-  </div>
+<footer class="foot"><div class="wrap">
   <ul>
     <li><a href="mailto:wincraftsupport@gmail.com">wincraftsupport@gmail.com</a></li>
     <li><a href="https://www.instagram.com/wincraft.app/">Instagram</a></li>
     <li><a href="privacy-policy.html">Privacy policy</a></li>
   </ul>
-  <div>
-    <p>© 2026 WinCraft</p>
-    <p>Photograph: <a href="https://commons.wikimedia.org/wiki/File:Vallee-brouillard.jpg">Thomas Bresson</a> (CC BY 3.0, Wikimedia Commons)</p>
-  </div>
+  <p class="legal">© 2026 WinCraft. WinCraft is an independent application. It is not affiliated with, sponsored by or endorsed by any third-party company named in the app. Bluetooth support is limited to supported models.</p>
 </div></footer>
 
 <script>
