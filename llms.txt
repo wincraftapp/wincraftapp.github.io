@@ -1,0 +1,14 @@
+# WinCraft
+
+> WinCraft is an Android field studio for aluminium window and door fabricators: measure on site, design the window and send a quotation PDF. The beta is Android only.
+
+- Measure with a supported Bluetooth laser measure, or type the width and height.
+- Draw sliding, casement, tilt and turn, louvre and other windows.
+- Quotation PDF with your logo, drawings, specifications and totals; you enter quantity and unit rate.
+- Projects are kept on your device. No sign-in, no ads.
+
+## Links
+
+- [Home and beta sign-up](https://wincraftapp.github.io/)
+- [Privacy policy](https://wincraftapp.github.io/privacy-policy.html)
+- [Instagram](https://www.instagram.com/wincraft.app/)

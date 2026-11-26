@@ -88,13 +88,13 @@
   <div>
     <h2>A project for every site.</h2>
     <ul class="tour__list" role="tablist" aria-label="WinCraft screens">
-      <li><button role="tab" aria-selected="true" data-shot="assets/01-studio.jpg"><span><b>Your studio</b><small>Every site and quotation in one place.</small></span></button></li>
-      <li><button role="tab" aria-selected="false" data-shot="assets/03-workspace.jpg"><span><b>The site</b><small>Client, address, map link, date and notes.</small></span></button></li>
-      <li><button role="tab" aria-selected="false" data-shot="assets/05-window-drawing.jpg"><span><b>The window</b><small>Sliding, casement, tilt and turn, louvres and more.</small></span></button></li>
-      <li><button role="tab" aria-selected="false" data-shot="assets/04-window-cards.jpg"><span><b>Every opening</b><small>By floor and room, each with its own mark.</small></span></button></li>
+      <li role="presentation"><button role="tab" aria-selected="true" data-shot="assets/01-studio.jpg"><span><b>Your studio</b><small>Every site and quotation in one place.</small></span></button></li>
+      <li role="presentation"><button role="tab" aria-selected="false" data-shot="assets/03-workspace.jpg"><span><b>The site</b><small>Client, address, map link, date and notes.</small></span></button></li>
+      <li role="presentation"><button role="tab" aria-selected="false" data-shot="assets/05-window-drawing.jpg"><span><b>The window</b><small>Sliding, casement, tilt and turn, louvres and more.</small></span></button></li>
+      <li role="presentation"><button role="tab" aria-selected="false" data-shot="assets/04-window-cards.jpg"><span><b>Every opening</b><small>By floor and room, each with its own mark.</small></span></button></li>
     </ul>
   </div>
-  <div class="glass pane"><img id="shot" src="assets/01-studio.jpg" alt="WinCraft screen" width="540" height="960" loading="lazy"></div>
+  <div class="glass pane" role="tabpanel" aria-label="Selected screen"><img id="shot" src="assets/01-studio.jpg" alt="WinCraft screen" width="540" height="960" loading="lazy"></div>
 </div></section>
 
 <section class="band"><div class="container handoff">
