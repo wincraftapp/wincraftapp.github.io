@@ -9,9 +9,9 @@
   --color-error: oklch(72% 0.15 27); --color-success: oklch(76% 0.13 150);
   --container: 1440px; --gutter: 64px; --gap-columns: 32px; --section-gap-s: 120px; --section-gap: 144px; --section-gap-l: 176px;
   --z-base: 1; --z-raised: 10; --z-dropdown: 100; --z-sticky: 200; --z-sticky-nav: 300; --z-modal: 400; --z-toast: 500; --z-tooltip: 600;
-  --color-paper: oklch(17.5% 0.014 268); --color-paper-2: oklch(21% 0.016 268); --color-paper-3: oklch(25% 0.017 268);
+  --color-paper: oklch(20% 0.008 60); --color-paper-2: oklch(24% 0.009 60); --color-paper-3: oklch(28% 0.01 60);
   --color-ink: oklch(96% 0.006 75); --color-ink-2: oklch(85% 0.010 262); --color-muted: oklch(70% 0.016 262);
-  --color-rule: oklch(30% 0.016 266); --color-light: oklch(100% 0 0); --color-shade: oklch(10% 0.022 268);
+  --color-rule: oklch(33% 0.01 60); --color-light: oklch(100% 0 0); --color-shade: oklch(10% 0.022 268);
   --color-accent: oklch(77% 0.10 274); --color-accent-ink: oklch(19% 0.035 274); --color-accent-hi: oklch(84% 0.085 274);
   --color-accent-deep: oklch(44% 0.13 274); --color-accent-soft: oklch(91% 0.038 274); --color-focus: oklch(80% 0.10 274);
   --color-accent-2: oklch(83% 0.095 62); --color-dusk: oklch(70% 0.12 330);
