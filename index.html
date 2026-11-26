@@ -3,198 +3,142 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>WinCraft — Measure, design and quote aluminium windows on site</title>
+<title>WinCraft: measure, design and quote aluminium windows on site</title>
 <meta name="description" content="WinCraft is a field studio for aluminium window and door fabricators. Measure on site, design the window and send a quotation PDF. Join the Android beta.">
-<meta property="og:title" content="WinCraft — Stop typing sizes">
+<meta property="og:title" content="WinCraft: stop typing sizes">
 <meta property="og:description" content="Measure on site, design the window, send the quotation. Join the Android beta.">
 <meta property="og:image" content="https://wincraftapp.github.io/assets/reel-poster.jpg">
-<meta name="theme-color" content="#050506">
+<meta name="theme-color" content="#16181f">
 <link rel="icon" href="assets/logo-192.png">
-<style>
-*{box-sizing:border-box;margin:0;padding:0}
-:root{--red:#ff4a55;--ink:#fff;--mute:rgba(255,255,255,.62);--faint:rgba(255,255,255,.4);--line:rgba(255,255,255,.12)}
-html{scroll-behavior:smooth}
-body{background:#050506;color:var(--ink);font:400 18px/1.55 "Segoe UI Variable Text","Segoe UI",system-ui,-apple-system,Roboto,sans-serif;-webkit-font-smoothing:antialiased}
-a{color:inherit}
-.wrap{max-width:1120px;margin:0 auto;padding:0 24px}
-.eye{font-size:13px;font-weight:600;letter-spacing:.32em;text-transform:uppercase;color:var(--faint)}
-.eye b{color:var(--red);font-weight:600}
-h1,h2{font-family:"Segoe UI Variable Display","Segoe UI",system-ui,-apple-system,Roboto,sans-serif;font-weight:300;letter-spacing:-.03em;line-height:1.02}
-h1{font-size:clamp(52px,9vw,104px)}
-h2{font-size:clamp(36px,5.4vw,60px)}
-h1 i,h2 i{font-style:normal;color:var(--red)}
-.lead{font-size:clamp(18px,2.1vw,22px);color:var(--mute);max-width:34em}
-.btn{display:inline-block;padding:16px 28px;border-radius:999px;background:var(--red);color:#fff;font-weight:600;text-decoration:none;border:0;font-size:17px;cursor:pointer}
-.btn.ghost{background:transparent;border:1.5px solid var(--line);color:var(--ink)}
-.btn:focus-visible,input:focus-visible,select:focus-visible{outline:2px solid #fff;outline-offset:3px}
-section{padding:110px 0;border-top:1px solid var(--line)}
-
-/* nav */
-nav{position:sticky;top:0;z-index:5;background:rgba(5,5,6,.82);backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
-nav .wrap{display:flex;align-items:center;justify-content:space-between;height:64px}
-.brand{display:flex;align-items:center;gap:10px;font-weight:600;text-decoration:none}
-.brand img{width:30px;height:30px}
-nav .btn{padding:10px 20px;font-size:15px}
-
-/* hero */
-.hero{border:0;padding:72px 0 96px;background:radial-gradient(ellipse 70% 60% at 70% 30%,#1b1d23 0%,#050506 70%)}
-.hero .wrap{display:grid;grid-template-columns:1.1fr .9fr;gap:56px;align-items:center}
-.hero .eye{margin-bottom:22px}
-.hero .lead{margin:26px 0 34px}
-.cta{display:flex;gap:14px;flex-wrap:wrap}
-.phone{position:relative;justify-self:center;width:min(340px,80vw);aspect-ratio:9/16;border-radius:34px;padding:10px;background:#17181b;box-shadow:0 0 0 1.5px #44474e,-24px 0 60px -30px rgba(255,255,255,.25),0 50px 90px rgba(0,0,0,.9)}
-.phone video{width:100%;height:100%;border-radius:26px;object-fit:cover;background:#000;display:block}
-.note{margin-top:22px;font-size:14px;color:var(--faint)}
-
-/* how it works */
-.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:56px}
-.step{padding:30px 28px;border:1px solid var(--line);border-radius:22px;background:#0b0c0e}
-.step .n{font:300 54px/1 "Segoe UI Variable Display","Segoe UI",sans-serif;color:var(--red);letter-spacing:-.03em}
-.step h3{font-size:22px;font-weight:600;margin:14px 0 8px}
-.step p{color:var(--mute);font-size:16px}
-
-/* features */
-.feat{display:grid;grid-template-columns:repeat(3,1fr);gap:40px 32px;margin-top:56px}
-.feat h3{font-size:19px;font-weight:600;margin-bottom:8px}
-.feat h3::before{content:"";display:block;width:26px;height:2px;background:var(--red);margin-bottom:16px}
-.feat p{color:var(--mute);font-size:16px}
-
-/* screens */
-.screens{display:flex;gap:22px;overflow-x:auto;padding:56px 24px 12px;margin:0 -24px;scroll-snap-type:x mandatory}
-.screens figure{flex:0 0 240px;scroll-snap-align:start}
-.screens img{width:240px;border-radius:22px;box-shadow:0 0 0 1px var(--line),0 30px 60px rgba(0,0,0,.7);display:block}
-.screens figure.wide{flex-basis:320px}.screens figure.wide img{width:320px;border-radius:8px;background:#fff}
-.screens figcaption{margin-top:14px;font-size:15px;color:var(--mute)}
-
-/* beta */
-.beta .wrap{display:grid;grid-template-columns:.9fr 1.1fr;gap:56px}
-.beta ul{margin:26px 0 0 0;list-style:none}
-.beta li{padding:12px 0;border-top:1px solid var(--line);color:var(--mute);font-size:16px}
-.beta li b{color:var(--ink);font-weight:600}
-form{background:#0b0c0e;border:1px solid var(--line);border-radius:24px;padding:32px}
-label{display:block;font-size:14px;font-weight:600;letter-spacing:.02em;margin:0 0 8px;color:var(--mute)}
-input,select{width:100%;padding:14px 16px;margin-bottom:20px;border-radius:12px;border:1px solid var(--line);background:#121317;color:#fff;font:inherit;font-size:17px}
-select{appearance:none;background-image:linear-gradient(45deg,transparent 50%,#888 50%),linear-gradient(135deg,#888 50%,transparent 50%);background-position:calc(100% - 22px) 22px,calc(100% - 16px) 22px;background-size:6px 6px;background-repeat:no-repeat}
-.hint{font-size:13px;color:var(--faint);margin:-12px 0 20px}
-.row{display:grid;grid-template-columns:1fr 1fr;gap:16px}
-form .btn{width:100%;margin-top:6px}
-.small{font-size:13px;color:var(--faint);margin-top:16px}
-#done{display:none;text-align:center;padding:30px 10px}
-#done h3{font:300 40px/1.1 "Segoe UI Variable Display","Segoe UI",sans-serif;letter-spacing:-.02em;margin-bottom:12px}
-#done p{color:var(--mute)}
-
-footer{border-top:1px solid var(--line);padding:44px 0 60px;color:var(--faint);font-size:14px}
-footer .wrap{display:flex;justify-content:space-between;gap:24px;flex-wrap:wrap}
-footer a{color:var(--mute)}
-.disc{margin-top:10px;max-width:46em}
-
-@media (max-width:860px){
-  .hero .wrap,.beta .wrap{grid-template-columns:1fr}
-  .steps,.feat{grid-template-columns:1fr}
-  section{padding:80px 0}
-  .hero{padding:44px 0 72px}
-  .phone{order:2}
-}
-@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
-</style>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Wix+Madefor+Display:wght@400;500;600&family=Wix+Madefor+Text:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="site.css">
 </head>
 <body>
-<nav><div class="wrap">
+<header class="nav"><div class="container">
   <a class="brand" href="#top"><img src="assets/logo-192.png" alt="">WinCraft</a>
-  <a class="btn" href="#beta">Join the beta</a>
-</div></nav>
-
-<header class="hero" id="top"><div class="wrap">
-  <div>
-    <p class="eye">For aluminium window &amp; door fabricators · <b>Android beta</b></p>
-    <h1>Stop typing<br><i>sizes.</i></h1>
-    <p class="lead">WinCraft is a field studio for window fabricators. Measure each opening on site, design the window on screen, and hand your client a clear quotation PDF.</p>
-    <div class="cta">
-      <a class="btn" href="#beta">Join the beta</a>
-      <a class="btn ghost" href="#how">See how it works</a>
-    </div>
-    <p class="note">Projects are saved on your device. No sign-in, no ads.</p>
-  </div>
-  <div class="phone">
-    <video src="assets/reel-laser.mp4" poster="assets/reel-poster.jpg" controls playsinline preload="none" aria-label="WinCraft with a Bluetooth laser measure, 45 second video"></video>
-  </div>
+  <nav class="nav__links" aria-label="Main">
+    <a href="#how">How it works</a>
+    <a href="#questions">Questions</a>
+    <a class="btn" href="#beta">Join the beta</a>
+  </nav>
 </div></header>
 
-<section id="how"><div class="wrap">
-  <p class="eye">How it works · <b>Bluetooth laser</b></p>
-  <h2>Point. Click. <i>It's in the window.</i></h2>
-  <div class="steps">
-    <div class="step"><div class="n">01</div><h3>Pair</h3><p>Connect a supported Bluetooth laser measure to WinCraft once.</p></div>
-    <div class="step"><div class="n">02</div><h3>Point &amp; click</h3><p>Aim the laser at the opening and press the button on the meter.</p></div>
-    <div class="step"><div class="n">03</div><h3>It fills itself</h3><p>Width and height land in the window. Nothing to read out, nothing to type again.</p></div>
+<main>
+<section class="hero" id="top">
+  <div class="hero__photo" data-slot="hero" data-alt="A valley of fog at dusk"><img src="assets/dusk-fog.jpg" alt="Sea of fog filling a valley below dark hills at sunset" width="1920" height="1254"></div>
+  <div class="hero__scrim"></div>
+  <div class="container">
+    <div>
+      <h1>Stop typing sizes.</h1>
+      <p class="lead">Measure with a laser, draw the window, send the quotation PDF.</p>
+    </div>
+    <form id="f" class="glass signup" novalidate>
+      <div id="fields">
+        <h2 id="beta">Join the Android beta</h2>
+        <p class="sub">We add your Gmail to the Google Play test.</p>
+        <div class="field"><label for="name">Your name</label><input id="name" name="name" autocomplete="name" required></div>
+        <div class="field"><label for="gmail">Gmail address</label><input id="gmail" name="gmail" type="email" inputmode="email" autocomplete="email" required placeholder="you@gmail.com"><p class="hint">The account signed in to Play Store on your device.</p></div>
+        <div class="pair">
+          <div class="field"><label for="phone">WhatsApp</label><input id="phone" name="phone" type="tel" inputmode="tel" autocomplete="tel" placeholder="Optional"></div>
+          <div class="field"><label for="city">City</label><input id="city" name="city" autocomplete="address-level2"></div>
+        </div>
+        <div class="field"><label for="work">What best describes you?</label>
+          <select id="work" name="work">
+            <option>Window / door fabricator</option>
+            <option>Contractor or builder</option>
+            <option>Architect or interior designer</option>
+            <option>Other</option>
+          </select></div>
+        <button class="btn" type="submit">Request beta access</button>
+        <p class="small" id="msg" role="status"></p>
+        <p class="small">Used only for beta access. <a href="privacy-policy.html">Privacy policy</a></p>
+      </div>
+      <div id="done">
+        <h3>Almost done.</h3>
+        <p id="donetext">Send the email that just opened, and we’ll add you to the beta.</p>
+      </div>
+    </form>
   </div>
-  <p class="note">No laser? Type the width and height and watch the drawing update. Bluetooth support is limited to supported models.</p>
+</section>
+
+<section class="band" id="how"><div class="container">
+  <div class="head">
+    <h2>From the laser to the quotation.</h2>
+    <p>One click on the meter, and the size is in the window.</p>
+  </div>
+  <div class="path">
+    <div class="stop"><figure>
+      <div class="frame meter" aria-hidden="true"><div class="meter__body"><div class="meter__lcd">1.621 m</div><div class="meter__btn"></div><div class="meter__bt">Paired</div></div></div>
+      <figcaption><span class="n">1</span><h3>Point and click</h3><p>A supported Bluetooth laser measure.</p></figcaption></figure></div>
+    <div class="stop"><figure>
+      <div class="frame link"><div><strong>Bluetooth</strong><span>Paired with WinCraft once</span></div></div>
+      <figcaption><span class="n">2</span><h3>Sent over Bluetooth</h3><p>Nothing to read out.</p></figcaption></figure></div>
+    <div class="stop"><figure>
+      <div class="frame"><img src="assets/05-window-drawing.jpg" alt="Window drawing in WinCraft with the width filled in" width="540" height="960" loading="lazy"></div>
+      <figcaption><span class="n">3</span><h3>Into the window</h3><p>Width and height fill themselves.</p></figcaption></figure></div>
+    <div class="stop"><figure>
+      <div class="frame"><img src="assets/quote.jpg" alt="Quotation PDF page for an example project" width="700" height="991" loading="lazy"></div>
+      <figcaption><span class="n">4</span><h3>Onto the quotation</h3><p>Drawn and totalled at your rate.</p></figcaption></figure></div>
+  </div>
+  <p class="path__note">No laser? Type the width and height and watch the drawing update. Bluetooth support is limited to supported models.</p>
 </div></section>
 
-<section><div class="wrap">
-  <p class="eye">What you get</p>
-  <h2>From the site to the <i>quotation.</i></h2>
-  <div class="feat">
-    <div><h3>A project for every site</h3><p>Client, address, map link, date and site notes. Add every opening by floor and room, each with its own mark.</p></div>
-    <div><h3>Design any window</h3><p>Sliding from 2 to 8 shutters, casement, tilt and turn, top and bottom hung, fixed panels and louvres, with your own divisions.</p></div>
-    <div><h3>Full specifications</h3><p>Series and profiles, glass, lock and bearing brands, and a powder coating shade library with colour preview.</p></div>
-    <div><h3>Quotation PDF</h3><p>Your logo, window drawings, specifications, prices and totals. GST shown inclusive or exclusive.</p></div>
-    <div><h3>Worksheet &amp; Excel</h3><p>A measurement book PDF with a checklist, plus Excel schedules. Save or share straight from the app.</p></div>
-    <div><h3>Your rates, your totals</h3><p>You enter quantity and unit rate; WinCraft totals the project. Works in millimetres, inches or feet.</p></div>
-  </div>
-  <div class="screens" aria-label="App screenshots">
-    <figure><img src="assets/01-studio.jpg" alt="WinCraft home screen" loading="lazy"><figcaption>Your studio</figcaption></figure>
-    <figure><img src="assets/03-workspace.jpg" alt="Project workspace with totals" loading="lazy"><figcaption>Project workspace</figcaption></figure>
-    <figure><img src="assets/05-window-drawing.jpg" alt="Window drawing with dimensions" loading="lazy"><figcaption>Window drawing</figcaption></figure>
-    <figure><img src="assets/04-window-cards.jpg" alt="Window cards in a project" loading="lazy"><figcaption>Every window, listed</figcaption></figure>
-    <figure class="wide"><img src="assets/quote.jpg" alt="Sample quotation PDF page for an example project" loading="lazy"><figcaption>Quotation PDF (example project)</figcaption></figure>
-  </div>
-</div></section>
-
-<section class="beta" id="beta"><div class="wrap">
+<section class="band"><div class="container tour">
   <div>
-    <p class="eye">Early access · <b>Android</b></p>
-    <h2>Try WinCraft <i>before launch.</i></h2>
-    <p class="lead" style="margin-top:22px">We're opening the Android beta to a small group of fabricators. Tell us about your work and we'll add you to the Google Play test.</p>
-    <ul>
-      <li><b>Android phone or tablet</b> — the beta is Android only for now.</li>
-      <li><b>A Gmail address</b> — Google Play uses it to give you access.</li>
-      <li><b>Your feedback</b> — tell us what to fix before launch.</li>
+    <h2>A project for every site.</h2>
+    <ul class="tour__list" role="tablist" aria-label="WinCraft screens">
+      <li><button role="tab" aria-selected="true" data-shot="assets/01-studio.jpg"><span><b>Your studio</b><small>Every site and quotation in one place.</small></span></button></li>
+      <li><button role="tab" aria-selected="false" data-shot="assets/03-workspace.jpg"><span><b>The site</b><small>Client, address, map link, date and notes.</small></span></button></li>
+      <li><button role="tab" aria-selected="false" data-shot="assets/05-window-drawing.jpg"><span><b>The window</b><small>Sliding, casement, tilt and turn, louvres and more.</small></span></button></li>
+      <li><button role="tab" aria-selected="false" data-shot="assets/04-window-cards.jpg"><span><b>Every opening</b><small>By floor and room, each with its own mark.</small></span></button></li>
     </ul>
   </div>
-  <form id="f" novalidate>
-    <div id="fields">
-      <label for="name">Your name</label>
-      <input id="name" name="name" autocomplete="name" required>
-      <label for="gmail">Gmail address</label>
-      <input id="gmail" name="gmail" type="email" inputmode="email" autocomplete="email" required placeholder="you@gmail.com">
-      <p class="hint">Use the Google account signed in to Play Store on your device.</p>
-      <div class="row">
-        <div><label for="phone">WhatsApp number</label><input id="phone" name="phone" type="tel" inputmode="tel" autocomplete="tel" placeholder="Optional"></div>
-        <div><label for="city">City</label><input id="city" name="city" autocomplete="address-level2"></div>
-      </div>
-      <label for="work">What best describes you?</label>
-      <select id="work" name="work">
-        <option>Window / door fabricator</option>
-        <option>Contractor or builder</option>
-        <option>Architect or interior designer</option>
-        <option>Other</option>
-      </select>
-      <button class="btn" type="submit">Request beta access</button>
-      <p class="small" id="msg" role="status"></p>
-      <p class="small">We use these details only to give you beta access and contact you about WinCraft. <a href="privacy-policy.html">Privacy policy</a></p>
-    </div>
-    <div id="done">
-      <h3>Almost done.</h3>
-      <p id="donetext">Send the email that just opened, and we'll add you to the beta.</p>
-    </div>
-  </form>
+  <div class="glass pane"><img id="shot" src="assets/01-studio.jpg" alt="WinCraft screen" width="540" height="960" loading="lazy"></div>
 </div></section>
 
-<footer><div class="wrap">
+<section class="band"><div class="container handoff">
+  <div class="well"><img src="assets/quote.jpg" alt="Quotation PDF page for an example project" width="700" height="991" loading="lazy"></div>
   <div>
-    <div>© 2026 WinCraft · <a href="mailto:wincraftsupport@gmail.com">wincraftsupport@gmail.com</a> · <a href="https://www.instagram.com/wincraft.app/">@wincraft.app</a> · <a href="privacy-policy.html">Privacy policy</a></div>
-    <p class="disc">WinCraft is an independent application. It is not affiliated with, sponsored by or endorsed by any third-party company named in the app. Bluetooth support is limited to supported models.</p>
+    <h2>Hand over a quotation, not a diary page.</h2>
+    <ul>
+      <li>Your logo, drawings, specifications and totals</li>
+      <li>GST shown inclusive or exclusive</li>
+      <li>Worksheet PDF and Excel schedules</li>
+    </ul>
+    <div class="reel">
+      <video src="assets/reel-laser.mp4" poster="assets/reel-poster.jpg" controls playsinline preload="none" aria-label="WinCraft with a Bluetooth laser measure, 45 second video"></video>
+      <p>Watch it in 45 seconds.</p>
+    </div>
+  </div>
+</div></section>
+
+<section class="band" id="questions"><div class="container">
+  <div class="head"><h2>Questions</h2></div>
+  <div class="qs">
+    <details><summary>Which devices does the beta run on?</summary><p>Android phones and tablets. The beta is Android only for now.</p></details>
+    <details><summary>Do I need a laser measure?</summary><p>No. Type the width and height and the drawing updates. A supported Bluetooth laser just fills them for you.</p></details>
+    <details><summary>Does WinCraft set my prices?</summary><p>No. You enter quantity and unit rate, and WinCraft totals the project.</p></details>
+    <details><summary>Where are my projects kept?</summary><p>On your device. No sign-in, no ads, with a daily backup and backup to a file you keep.</p></details>
+    <details><summary>How do I join?</summary><p>Send your Gmail through the form. We add it to the Google Play test and message you.</p></details>
+  </div>
+  <p class="again"><a class="btn" href="#beta">Request beta access</a></p>
+</div></section>
+</main>
+
+<footer class="colophon"><div class="container">
+  <div>
+    <a class="brand" href="#top"><img src="assets/logo-192.png" alt="">WinCraft</a>
+    <p style="margin-top:var(--space-md)">WinCraft is an independent application. It is not affiliated with, sponsored by or endorsed by any third-party company named in the app. Bluetooth support is limited to supported models.</p>
+  </div>
+  <ul>
+    <li><a href="mailto:wincraftsupport@gmail.com">wincraftsupport@gmail.com</a></li>
+    <li><a href="https://www.instagram.com/wincraft.app/">Instagram</a></li>
+    <li><a href="privacy-policy.html">Privacy policy</a></li>
+  </ul>
+  <div>
+    <p>© 2026 WinCraft</p>
+    <p>Photograph: <a href="https://commons.wikimedia.org/wiki/File:Vallee-brouillard.jpg">Thomas Bresson</a> (CC BY 3.0, Wikimedia Commons)</p>
   </div>
 </div></footer>
 
@@ -214,7 +158,7 @@ f.addEventListener('submit', async e => {
     for (const k in ENTRY) if (ENTRY[k]) body.append(ENTRY[k], d[k]);
     try { await fetch(FORM_ACTION, { method: 'POST', mode: 'no-cors', body }); }
     catch { return say('Could not send. Check your connection and try again.'); }
-    document.getElementById('donetext').textContent = "You're on the list. We'll add your Gmail to the Google Play beta and message you.";
+    document.getElementById('donetext').textContent = "You’re on the list. We’ll add your Gmail to the Google Play beta and message you.";
   } else {
     const lines = [`Name: ${d.name}`, `Gmail: ${d.gmail}`, `WhatsApp: ${d.phone || '-'}`, `City: ${d.city || '-'}`, `Work: ${d.work}`];
     location.href = 'mailto:wincraftsupport@gmail.com?subject=' + encodeURIComponent('WinCraft beta request') + '&body=' + encodeURIComponent(lines.join('\n'));
@@ -223,6 +167,12 @@ f.addEventListener('submit', async e => {
   document.getElementById('done').style.display = 'block';
 });
 function say(t, id) { msg.textContent = t; if (id) document.getElementById(id).focus(); }
+// Tour: the list changes the one pane beside it.
+const shot = document.getElementById('shot');
+document.querySelectorAll('.tour__list button').forEach(b => b.addEventListener('click', () => {
+  document.querySelectorAll('.tour__list button').forEach(o => o.setAttribute('aria-selected', o === b));
+  shot.src = b.dataset.shot; shot.alt = b.querySelector('b').textContent + ' in WinCraft';
+}));
 </script>
 </body>
 </html>
