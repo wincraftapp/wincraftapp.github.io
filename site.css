@@ -123,7 +123,7 @@
 .qs summary:focus-visible { outline: 2px solid var(--color-focus); outline-offset: 4px; border-radius: 4px; }
 .qs details p { padding: 0 0 var(--space-lg); color: var(--color-ink-2); max-width: 60ch; }
 .qs summary { font-size: var(--text-xl); }
-.qs .again { margin-top: var(--space-2xl); }
+.again { margin-top: var(--space-2xl); }
 
 /* footer: colophon block */
 .colophon { border-top: 1px solid var(--color-rule); padding-block: var(--space-2xl) var(--space-3xl); color: var(--color-muted); font-size: var(--text-sm); }
