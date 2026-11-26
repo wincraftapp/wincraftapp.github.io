@@ -55,8 +55,8 @@
         <p class="small">Used only for beta access. <a href="privacy-policy.html">Privacy policy</a></p>
       </div>
       <div id="done">
-        <h3>Almost done.</h3>
-        <p id="donetext">Send the email that just opened, and we’ll add you to the beta.</p>
+        <h3>Thank you.</h3>
+        <p id="donetext">You’re on the list. We’ll add your Gmail to the Google Play beta and message you.</p>
       </div>
     </form>
   </div>
@@ -144,8 +144,8 @@
 
 <script>
 // Beta sign-up. FORM_ACTION: a Google Form "formResponse" URL with its entry ids; until set, the details go by e-mail.
-const FORM_ACTION = '';
-const ENTRY = { name: '', gmail: '', phone: '', city: '', work: '' };
+const FORM_ACTION = 'https://docs.google.com/forms/d/e/1FAIpQLSfFl1Y6rrq8B3uly28Ilko8HFQurtd9qMZEtXNdvsNPv6n3ig/formResponse';
+const ENTRY = { name: 'entry.960835226', gmail: 'entry.1089995100', phone: 'entry.1334987685', city: 'entry.96152735', work: 'entry.502158687' };
 const f = document.getElementById('f'), msg = document.getElementById('msg');
 f.addEventListener('submit', async e => {
   e.preventDefault();
