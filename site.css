@@ -103,14 +103,16 @@
 .pane img { width: 100%; border-radius: var(--radius-inner); transition: opacity var(--dur-long) var(--ease-out); }
 
 /* the quotation, a hand-off in a well */
-.handoff { display: grid; grid-template-columns: minmax(0, 6fr) minmax(0, 5fr); gap: var(--space-3xl); align-items: center; }
-.well { aspect-ratio: 5 / 4; border-radius: var(--radius-card); background: var(--color-well); display: grid; place-items: center; overflow: hidden; padding: var(--space-xl) var(--space-xl) 0; }
-.well img { width: 78%; align-self: end; border-radius: var(--radius-inner) var(--radius-inner) 0 0; box-shadow: 0 30px 60px -20px color-mix(in oklab, var(--color-well-ink) 35%, transparent); }
+.handoff { display: grid; grid-template-columns: minmax(0, 6fr) minmax(0, 5fr); gap: var(--space-3xl); align-items: stretch; }
+.well { border-radius: var(--radius-card); background: var(--color-well); display: grid; place-items: center; padding: var(--space-xl); }
+.well img { width: auto; max-width: 100%; max-height: 600px; border-radius: var(--radius-inner); box-shadow: 0 30px 60px -20px color-mix(in oklab, var(--color-well-ink) 35%, transparent); }
 .handoff ul { list-style: none; margin: var(--space-xl) 0 0; padding: 0; border-top: 1px solid var(--color-rule); }
 .handoff li { padding: var(--space-md) 0; border-bottom: 1px solid var(--color-rule); color: var(--color-ink-2); }
-.reel { margin-top: var(--space-xl); display: grid; grid-template-columns: 120px minmax(0, 1fr); gap: var(--space-lg); align-items: center; }
-.reel video { width: 120px; aspect-ratio: 9 / 16; object-fit: cover; border-radius: var(--radius-inner); background: var(--color-shade); }
-.reel p { color: var(--color-muted); font-size: var(--text-sm); }
+.handoff > div:last-child { display: flex; flex-direction: column; justify-content: center; }
+.reel { margin-top: var(--space-xl); display: grid; grid-template-columns: 136px minmax(0, 1fr); gap: var(--space-lg); align-items: end; }
+.reel video { width: 136px; aspect-ratio: 9 / 16; object-fit: cover; border-radius: var(--radius-inner); background: var(--color-shade); }
+.reel h3 { font-size: var(--text-title); }
+.reel p { margin-top: var(--space-2xs); color: var(--color-muted); font-size: var(--text-sm); }
 
 /* questions as rows */
 .qs { max-width: none; border-top: 1px solid var(--color-rule); }
