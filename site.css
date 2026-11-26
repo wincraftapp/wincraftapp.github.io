@@ -39,7 +39,7 @@ video:focus, video:focus-within { outline: 2px solid var(--link-dark); outline-o
 .hero h1 { font-size: clamp(48px, 8vw, 80px); }
 .hero .sub { font-size: clamp(21px, 3vw, 28px); margin-top: 8px; }
 .ctas { display: flex; gap: 20px; justify-content: center; align-items: center; margin: 22px 0 40px; flex-wrap: wrap; }
-.device { width: min(360px, 80vw); margin-inline: auto; padding: 14px 14px 0; border-radius: 44px 44px 0 0; background: linear-gradient(145deg, #3a3a3c, #1c1c1e 45%, #2c2c2e); box-shadow: inset 0 0 0 1.5px #5a5a5e, inset 0 0 0 4px #1c1c1e, 0 30px 60px rgba(0,0,0,.18); }
+.device { width: min(360px, 80vw); margin-inline: auto; padding: 16px 16px 0; border-radius: 48px 48px 0 0; border-bottom: 0 !important; background: linear-gradient(#0a0a0b, #0a0a0b) padding-box, linear-gradient(150deg, #f2f3f5, #9a9ca1 22%, #e4e5e8 48%, #7c7e83 74%, #d6d7da) border-box; border: 3px solid transparent; position: relative; box-shadow: 0 30px 60px rgba(0,0,0,.2); }
 .device img { border-radius: 30px 30px 0 0; }
 
 /* sections */
@@ -75,8 +75,10 @@ section.dark .lede { color: var(--mute-dark); }
 .tour__list button small { display: block; font-size: 15px; margin-top: 2px; }
 .tour__list button[aria-selected="true"] { background: #fff; color: var(--ink); box-shadow: 0 4px 18px rgba(0,0,0,.06); }
 .tour__list button[aria-selected="true"] small { color: var(--mute); }
-.pane { width: min(440px, 100%); margin-inline: auto; padding: 16px; border-radius: 36px; background: linear-gradient(145deg, #3a3a3c, #1c1c1e 45%, #2c2c2e); box-shadow: inset 0 0 0 1.5px #5a5a5e, inset 0 0 0 4px #1c1c1e, 0 30px 60px rgba(0,0,0,.22), 0 8px 16px rgba(0,0,0,.12); }
-.pane img { border-radius: 18px; }
+.pane { width: min(440px, 100%); margin-inline: auto; padding: 18px; border-radius: 40px; background: linear-gradient(#0a0a0b, #0a0a0b) padding-box, linear-gradient(150deg, #f2f3f5, #9a9ca1 22%, #e4e5e8 48%, #7c7e83 74%, #d6d7da) border-box; border: 3px solid transparent; position: relative; box-shadow: 0 1px 0 rgba(255,255,255,.6), 0 30px 60px rgba(0,0,0,.25), 0 10px 20px rgba(0,0,0,.12); }
+.pane img { border-radius: 19px; }
+.pane::before, .device::before { content: ""; position: absolute; top: 7px; left: 50%; width: 6px; height: 6px; margin-left: -3px; border-radius: 50%; background: radial-gradient(circle at 35% 35%, #3b4a66, #0d1118 70%); box-shadow: 0 0 0 1px #1c1c1e; }
+.pane::after { content: ""; position: absolute; inset: 18px; border-radius: 19px; pointer-events: none; background: linear-gradient(125deg, rgba(255,255,255,.14), rgba(255,255,255,0) 38%); }
 
 /* quotation and video */
 .paper { width: min(380px, 86vw); margin: 56px auto 0; border-radius: 12px; overflow: hidden; box-shadow: 0 24px 60px rgba(0,0,0,.15); }
