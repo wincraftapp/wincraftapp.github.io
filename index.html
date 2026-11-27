@@ -13,13 +13,14 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,100..900&display=swap">
-<link rel="stylesheet" href="site.css?v=9">
+<link rel="stylesheet" href="site.css?v=10">
 </head>
 <body>
 <header class="nav"><div class="wrap nav__row">
   <a class="brand" href="#top"><img src="assets/logo-192.png" alt="" width="30" height="30">WinCraft</a>
   <nav class="nav__links" aria-label="Main">
     <a href="#how">How it works</a>
+    <a href="#walkthrough">Walkthrough</a>
     <a href="#questions">Questions</a>
     <a class="nav__cta" href="#beta">Join the beta</a>
   </nav>
@@ -118,6 +119,38 @@
   <div class="film__copy">
     <h2>See it with a real laser.</h2>
     <p class="lede">45 seconds, from the meter to the quotation.</p>
+  </div>
+</div></section>
+
+<section class="band" id="walkthrough"><div class="wrap walk">
+  <div class="walk__side">
+    <h2 data-en="The full walkthrough." data-hi="पूरा walkthrough.">The full walkthrough.</h2>
+    <p class="lede" data-en="Every step on a tablet, in 11 chapters. Subtitles in English and Hindi." data-hi="Tablet पर हर step, 11 chapters में. Subtitles English और हिन्दी में.">Every step on a tablet, in 11 chapters. Subtitles in English and Hindi.</p>
+    <div class="lang" role="group" aria-label="Subtitle language">
+      <button type="button" data-lang="en" aria-pressed="true">English</button>
+      <button type="button" data-lang="hi" aria-pressed="false" lang="hi">हिन्दी</button>
+    </div>
+    <ol class="chapters" aria-label="Chapters">
+      <li><button type="button" data-t="0"><span class="t">0:00</span><span data-en="Welcome" data-hi="स्वागत">Welcome</span></button></li>
+      <li><button type="button" data-t="23.13"><span class="t">0:23</span><span data-en="Company setup" data-hi="Company setup">Company setup</span></button></li>
+      <li><button type="button" data-t="46.4"><span class="t">0:46</span><span data-en="New project and site" data-hi="नया project और site">New project and site</span></button></li>
+      <li><button type="button" data-t="82.76"><span class="t">1:22</span><span data-en="Add a window and its size" data-hi="Window और उसका size">Add a window and its size</span></button></li>
+      <li><button type="button" data-t="113.89"><span class="t">1:53</span><span data-en="Bluetooth laser measure" data-hi="Bluetooth laser measure">Bluetooth laser measure</span></button></li>
+      <li><button type="button" data-t="128.22"><span class="t">2:08</span><span data-en="Window details" data-hi="Window की details">Window details</span></button></li>
+      <li><button type="button" data-t="165.57"><span class="t">2:45</span><span data-en="Pricing and saving" data-hi="Pricing और save">Pricing and saving</span></button></li>
+      <li><button type="button" data-t="186.24"><span class="t">3:06</span><span data-en="Project overview" data-hi="Project overview">Project overview</span></button></li>
+      <li><button type="button" data-t="219.45"><span class="t">3:39</span><span data-en="Quotation, worksheet and Excel" data-hi="Quotation, worksheet और Excel">Quotation, worksheet and Excel</span></button></li>
+      <li><button type="button" data-t="246.72"><span class="t">4:06</span><span data-en="Project library and follow-ups" data-hi="Project library और follow-ups">Project library and follow-ups</span></button></li>
+      <li><button type="button" data-t="262.06"><span class="t">4:22</span><span data-en="Tips" data-hi="Tips">Tips</span></button></li>
+    </ol>
+    <p class="walk__note" data-en="The laser chapter shows a simulated reading. Demo data only." data-hi="Laser chapter में simulated reading है. सिर्फ़ demo data.">The laser chapter shows a simulated reading. Demo data only.</p>
+  </div>
+  <div class="walk__device">
+    <video id="wt" controls playsinline preload="metadata" poster="assets/walkthrough-poster.jpg" width="720" height="1122" aria-label="WinCraft walkthrough on a tablet, 4 minutes 42 seconds, with English and Hindi subtitles">
+      <source src="assets/walkthrough.mp4" type="video/mp4">
+      <track kind="subtitles" src="assets/walkthrough.en.vtt" srclang="en" label="English" default>
+      <track kind="subtitles" src="assets/walkthrough.hi.vtt" srclang="hi" label="हिन्दी">
+    </video>
   </div>
 </div></section>
 
@@ -256,6 +289,25 @@ async function laser() {
 }
 $('fire').addEventListener('click', laser);
 update(); setTimeout(laser, 700);
+
+// Walkthrough: chapter buttons seek the video; the language switch changes subtitles and chapter names together.
+(() => {
+  const wt = document.getElementById('wt'); if (!wt) return;
+  const sec = document.getElementById('walkthrough');
+  const setLang = (lang) => {
+    for (const t of wt.textTracks) t.mode = t.language === lang ? 'showing' : 'disabled';
+    sec.querySelectorAll('[data-lang]').forEach((b) => b.setAttribute('aria-pressed', String(b.dataset.lang === lang)));
+    sec.querySelectorAll('[data-en]').forEach((e) => { e.textContent = e.dataset[lang]; e.lang = lang; });
+  };
+  sec.querySelectorAll('[data-lang]').forEach((b) => b.addEventListener('click', () => setLang(b.dataset.lang)));
+  const chapters = [...sec.querySelectorAll('.chapters button')];
+  chapters.forEach((b) => b.addEventListener('click', () => { wt.currentTime = +b.dataset.t; wt.play().catch(() => {}); }));
+  wt.addEventListener('timeupdate', () => {
+    let cur = chapters[0]; for (const b of chapters) if (wt.currentTime >= +b.dataset.t) cur = b;
+    chapters.forEach((b) => b.setAttribute('aria-current', b === cur ? 'true' : 'false'));
+  });
+  setLang('en');
+})();
 </script>
 </body>
 </html>

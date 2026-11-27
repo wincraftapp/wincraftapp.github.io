@@ -186,3 +186,20 @@ video:focus-visible { outline: 2px solid #8fb0ff; outline-offset: 3px; }
   .steps .step::before { display: block; position: static; margin-bottom: 8px; }
 }
 @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } * { transition: none !important; } }
+
+/* walkthrough: chapter list + language switch beside the tablet video */
+.walk { display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 6fr); gap: var(--gap); align-items: start; }
+.walk__side .lede { margin-bottom: 24px; }
+.lang { display: inline-flex; border: 1.5px solid var(--ink); border-radius: 6px; overflow: hidden; margin-bottom: 20px; }
+.lang button { min-height: 44px; padding: 0 18px; border: 0; background: transparent; font-weight: 600; cursor: pointer; }
+.lang button[aria-pressed="true"] { background: var(--ink); color: var(--sheet); }
+.chapters { border-top: 1px solid var(--line); counter-reset: none; }
+.chapters li { border-bottom: 1px solid var(--line); }
+.chapters button { display: flex; gap: 16px; align-items: baseline; width: 100%; min-height: 48px; padding: 10px 4px; border: 0; background: none; text-align: left; cursor: pointer; font-size: 16px; }
+.chapters button:hover { color: var(--blue); }
+.chapters button[aria-current="true"] { color: var(--blue); font-weight: 600; }
+.chapters .t { flex: none; width: 3.2em; color: var(--ink-2); font-variant-numeric: tabular-nums; font-size: 14px; }
+.walk__note { margin-top: 16px; font-size: 14px; color: var(--ink-2); }
+.walk__device { width: min(480px, 100%); justify-self: center; padding: 14px; border-radius: 30px; background: #0b0b0c; box-shadow: 0 0 0 2px #9aa3ad, 0 30px 60px rgba(12, 26, 43, .22); }
+.walk__device video { width: 100%; border-radius: 18px; background: #000; }
+@media (max-width: 860px) { .walk { grid-template-columns: minmax(0, 1fr); } .walk__device { order: -1; } }
