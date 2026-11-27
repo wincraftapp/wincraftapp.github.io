@@ -8,12 +8,12 @@
 <meta property="og:title" content="WinCraft: stop typing sizes">
 <meta property="og:description" content="Measure on site, design the window, send the quotation. Join the Android beta.">
 <meta property="og:image" content="https://wincraftapp.github.io/assets/reel-poster.jpg">
-<meta name="theme-color" content="#eef1f4">
+<meta name="theme-color" content="#070b12">
 <link rel="icon" href="assets/logo-192.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,100..900&display=swap">
-<link rel="stylesheet" href="site.css?v=10">
+<link rel="stylesheet" href="site.css?v=12">
 </head>
 <body>
 <header class="nav"><div class="wrap nav__row">
@@ -38,21 +38,12 @@
     </div>
   </div>
 
-  <div class="bench" aria-label="Try it: a window drawn from its size">
-    <p class="bench__status" id="status"><span class="dot"></span><span id="statustext">Laser measure ready</span></p>
-    <svg id="draw" class="bench__draw" viewBox="0 0 600 440" role="img" aria-labelledby="drawtitle">
-      <title id="drawtitle">Sliding window, two shutters, drawn to the size below</title>
-      <g id="win"></g>
-    </svg>
-    <div class="bench__fields">
-      <label class="num"><span>Width (mm)</span><input id="w" type="number" inputmode="decimal" min="1" step="any" value="1000"></label>
-      <label class="num"><span>Height (mm)</span><input id="h" type="number" inputmode="decimal" min="1" step="any" value="1000"></label>
-      <label class="num"><span>Your rate (₹ per sq ft)</span><input id="rate" type="number" inputmode="decimal" min="0" step="any" placeholder="Type your rate"></label>
-    </div>
-    <div class="bench__out">
-      <p><span>Area</span><b><output id="area" for="w h">10.76</output> sq ft</b></p>
-      <p><span>Unit price at your rate</span><b><output id="price" for="w h rate">Type your rate</output></b></p>
-      <button class="ghost" id="fire" type="button">Replay the laser</button>
+  <div class="stage">
+    <div class="phone"><img src="assets/laser-drawing.jpg" alt="Window drawing in WinCraft with width 1621 and height 1324 filled from the laser measure" width="540" height="864"></div>
+    <div class="read" aria-label="Sizes sent by the laser measure">
+      <p><span>Width</span><b id="rw">1621</b><small>mm</small></p>
+      <p><span>Height</span><b id="rh">1324</b><small>mm</small></p>
+      <p class="read__src"><span class="beam" aria-hidden="true"></span><i class="dot"></i>Sent by the laser</p>
     </div>
   </div>
 </div></section>
@@ -238,57 +229,14 @@ document.querySelectorAll('.tour__list button').forEach(b => b.addEventListener(
   shot.src = b.dataset.shot; shot.alt = b.querySelector('b').textContent + ' in WinCraft';
 }));
 
-// Hero bench: the drawing follows the size; the price follows the rate the visitor types.
-const $ = id => document.getElementById(id);
-const sqft = (w, h) => w * h / 92903.04; // one formula: mm² to sq ft, no rounding of the size
-console.assert(sqft(1219.2, 1219.2).toFixed(2) === '16.00' && sqft(1621, 1324).toFixed(2) === '23.10', 'area formula');
-const inr = n => '₹' + n.toLocaleString('en-IN', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
-let lit = ''; // which dimension the laser is filling: 'w', 'h' or ''
-function draw(w, h) {
-  const s = Math.min(430 / w, 320 / h), fw = w * s, fh = h * s, x = 110 + (430 - fw) / 2, y = 30 + (320 - fh) / 2;
-  const t = Math.min(14, fw / 9, fh / 9), sw = (fw - 2 * t) / 2, sh = fh - 2 * t, g = Math.min(11, sw / 5);
-  const sash = (sx, dir) => {
-    const cx = sx + sw / 2, cy = y + fh / 2, a = Math.min(sw * .28, 46) * dir, k = Math.min(15, sw / 8);
-    return `<rect x="${sx}" y="${y + t}" width="${sw}" height="${sh}" class="sash"/><rect x="${sx + g}" y="${y + t + g}" width="${sw - 2 * g}" height="${sh - 2 * g}" class="glass"/>` +
-      `<path d="M${cx - a} ${cy}H${cx + a}M${cx + a - k * dir} ${cy - k}L${cx + a} ${cy}L${cx + a - k * dir} ${cy + k}" class="arrow"/>`;
-  };
-  const by = y + fh + 34, lx = x - 34;
-  $('win').innerHTML =
-    `<rect x="${x}" y="${y}" width="${fw}" height="${fh}" class="frame"/>` + sash(x + t, 1) + sash(x + t + sw, -1) +
-    `<g class="dim${lit === 'w' ? ' lit' : ''}"><path d="M${x} ${by}H${x + fw}M${x} ${by - 6}v12M${x + fw} ${by - 6}v12"/><text x="${x + fw / 2}" y="${by + 26}" text-anchor="middle">${+w.toFixed(1)}</text></g>` +
-    `<g class="dim${lit === 'h' ? ' lit' : ''}"><path d="M${lx} ${y}V${y + fh}M${lx - 6} ${y}h12M${lx - 6} ${y + fh}h12"/><text x="${lx - 14}" y="${y + fh / 2 + 6}" text-anchor="end">${+h.toFixed(1)}</text></g>`;
-}
-function update() {
-  const w = +$('w').value, h = +$('h').value, r = +$('rate').value;
-  if (!(w > 0 && h > 0)) { $('area').textContent = '0.00'; $('price').textContent = 'Type a width and height'; return; }
-  draw(w, h);
-  $('area').textContent = sqft(w, h).toFixed(2);
-  $('price').textContent = r > 0 ? inr(sqft(w, h) * r) : 'Type your rate';
-}
-// Typing always wins: it stops a running laser.
-['w', 'h', 'rate'].forEach(id => $(id).addEventListener('input', () => { if (id !== 'rate') { run++; lit = ''; $('status').classList.remove('on'); $('statustext').textContent = 'Size typed by hand'; } update(); }));
-// The laser: two shots, width then height, the same sizes as the quotation below.
-let run = 0;
-function shoot(id, to, label) {
-  const el = $(id), from = +el.value || 1000, me = run, t0 = performance.now();
-  lit = id; $('statustext').textContent = label; $('status').classList.add('on');
-  return new Promise(done => requestAnimationFrame(function step(now) {
-    if (me !== run) return;
-    const p = Math.min(1, (now - t0) / 900), e = 1 - Math.pow(1 - p, 3);
-    el.value = Math.round(from + (to - from) * e); update();
-    p < 1 ? requestAnimationFrame(step) : setTimeout(done, 350);
-  }));
-}
-async function laser() {
-  const me = ++run;
-  $('w').value = $('h').value = 1000; update();
-  if (matchMedia('(prefers-reduced-motion: reduce)').matches) { $('w').value = 1621; $('h').value = 1324; }
-  else { await shoot('w', 1621, 'Laser: width sent'); await shoot('h', 1324, 'Laser: height sent'); }
-  if (me !== run) return;
-  lit = ''; $('status').classList.remove('on'); $('statustext').textContent = 'Filled from the laser: 1621 × 1324 mm'; update();
-}
-$('fire').addEventListener('click', laser);
-update(); setTimeout(laser, 700);
+// Hero: the two sizes count up once, after the beam lands. The HTML already holds the final numbers.
+if (!matchMedia('(prefers-reduced-motion: reduce)').matches) [['rw', 1621, 1200], ['rh', 1324, 2000]].forEach(([id, to, delay]) => {
+  const el = document.getElementById(id); el.textContent = 0;
+  setTimeout(() => { const t0 = performance.now(); requestAnimationFrame(function step(now) {
+    const p = Math.min(1, (now - t0) / 800); el.textContent = Math.round(to * (1 - Math.pow(1 - p, 3)));
+    if (p < 1) requestAnimationFrame(step);
+  }); }, delay);
+});
 
 // Walkthrough: chapter buttons seek the video; the language switch changes subtitles and chapter names together.
 (() => {
