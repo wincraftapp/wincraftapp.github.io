@@ -8,59 +8,82 @@
 <meta property="og:title" content="WinCraft: stop typing sizes">
 <meta property="og:description" content="Measure on site, design the window, send the quotation. Join the Android beta.">
 <meta property="og:image" content="https://wincraftapp.github.io/assets/reel-poster.jpg">
-<meta name="theme-color" content="#f5f5f7">
+<meta name="theme-color" content="#eef1f4">
 <link rel="icon" href="assets/logo-192.png">
-<link rel="stylesheet" href="site.css?v=8">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,100..900&display=swap">
+<link rel="stylesheet" href="site.css?v=9">
 </head>
 <body>
-<header class="nav"><div class="wrap">
-  <a class="brand" href="#top"><img src="assets/logo-192.png" alt="">WinCraft</a>
+<header class="nav"><div class="wrap nav__row">
+  <a class="brand" href="#top"><img src="assets/logo-192.png" alt="" width="30" height="30">WinCraft</a>
   <nav class="nav__links" aria-label="Main">
     <a href="#how">How it works</a>
     <a href="#questions">Questions</a>
-    <a class="cta" href="#beta">Join the beta</a>
+    <a class="nav__cta" href="#beta">Join the beta</a>
   </nav>
 </div></header>
 
 <main>
-<section class="hero" id="top">
-  <div class="wrap">
+<section class="hero" id="top"><div class="wrap hero__grid">
+  <div class="hero__copy">
     <h1>Stop typing sizes.</h1>
-    <p class="sub">Laser in. Quotation out.</p>
-    <div class="ctas">
-      <a class="pill" href="#beta">Join the beta</a>
-      <a class="more" href="#video">Watch the video ›</a>
+    <p class="hero__sub">Laser in. Quotation out.</p>
+    <p class="hero__body">WinCraft is a field studio for aluminium window and door fabricators. Measure on site, design the window and send the quotation PDF.</p>
+    <div class="hero__ctas">
+      <a class="btn" href="#beta">Join the beta</a>
+      <a class="link" href="#video">Watch the video</a>
     </div>
   </div>
-  <div class="device"><img src="assets/laser-drawing.jpg" alt="Window drawing in WinCraft with width 1621 and height 1324 filled from the laser measure" width="540" height="864"></div>
-</section>
 
-<section class="band dark" id="how"><div class="wrap">
-  <h2>From the laser<br>to the quotation.</h2>
-  <p class="lede">One click on the meter, and the size is in the window.</p>
-  <div class="steps">
-    <div class="step">
+  <div class="bench" aria-label="Try it: a window drawn from its size">
+    <p class="bench__status" id="status"><span class="dot"></span><span id="statustext">Laser measure ready</span></p>
+    <svg id="draw" class="bench__draw" viewBox="0 0 600 440" role="img" aria-labelledby="drawtitle">
+      <title id="drawtitle">Sliding window, two shutters, drawn to the size below</title>
+      <g id="win"></g>
+    </svg>
+    <div class="bench__fields">
+      <label class="num"><span>Width (mm)</span><input id="w" type="number" inputmode="decimal" min="1" step="any" value="1000"></label>
+      <label class="num"><span>Height (mm)</span><input id="h" type="number" inputmode="decimal" min="1" step="any" value="1000"></label>
+      <label class="num"><span>Your rate (₹ per sq ft)</span><input id="rate" type="number" inputmode="decimal" min="0" step="any" placeholder="Type your rate"></label>
+    </div>
+    <div class="bench__out">
+      <p><span>Area</span><b><output id="area" for="w h">10.76</output> sq ft</b></p>
+      <p><span>Unit price at your rate</span><b><output id="price" for="w h rate">Type your rate</output></b></p>
+      <button class="ghost" id="fire" type="button">Replay the laser</button>
+    </div>
+  </div>
+</div></section>
+
+<section class="band band--dark" id="how"><div class="wrap">
+  <div class="head">
+    <h2>From the laser to the quotation.</h2>
+    <p class="lede">One click on the meter, and the size is in the window.</p>
+  </div>
+  <ol class="steps">
+    <li class="step">
       <div class="shot shot--meter"><img src="assets/laser-meter.svg" alt="Bluetooth laser measure: width 1.621 m, then height 1.324 m" width="220" height="460"></div>
       <h3>Point and click</h3><p>A supported Bluetooth laser measure.</p>
-    </div>
-    <div class="step">
-      <div class="shot"><div class="bt"><svg class="bt__icon" width="72" height="72" viewBox="0 0 64 64" aria-hidden="true"><rect width="64" height="64" rx="18" fill="#0a84ff"/><path d="M22 22 l20 18 -10 9 V15 l10 9 -20 18" fill="none" stroke="#fff" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/></svg><strong>Bluetooth</strong><span>Paired with WinCraft once</span></div></div>
+    </li>
+    <li class="step">
+      <div class="shot shot--bt"><svg width="72" height="72" viewBox="0 0 64 64" aria-hidden="true"><rect width="64" height="64" rx="14" fill="#1f55d6"/><path d="M22 22 l20 18 -10 9 V15 l10 9 -20 18" fill="none" stroke="#fff" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/></svg><strong>Bluetooth</strong><span>Paired with WinCraft once</span></div>
       <h3>Sent over Bluetooth</h3><p>Nothing to read out.</p>
-    </div>
-    <div class="step">
-      <div class="shot"><img src="assets/laser-drawing.jpg" alt="Window drawing with the laser sizes filled in" width="540" height="864" loading="lazy"></div>
+    </li>
+    <li class="step">
+      <div class="shot shot--screen"><img src="assets/laser-drawing.jpg" alt="Window drawing in WinCraft with width 1621 and height 1324 filled from the laser measure" width="540" height="864" loading="lazy"></div>
       <h3>Into the window</h3><p>Width and height fill themselves.</p>
-    </div>
-    <div class="step">
+    </li>
+    <li class="step">
       <div class="shot shot--paper"><img src="assets/quote-detail2.jpg" alt="Quotation detail: a 1621 by 1324 mm sliding window, unit price 10,395.70 rupees, window amount 20,791.40 rupees" width="580" height="744" loading="lazy"></div>
       <h3>Onto the quotation</h3><p>Drawn and totalled at your rate.</p>
-    </div>
-  </div>
+    </li>
+  </ol>
   <p class="note">No laser? Type the width and height and watch the drawing update. Bluetooth support is limited to supported models.</p>
 </div></section>
 
-<section class="band grey"><div class="wrap">
-  <h2>A project for every site.</h2>
+<section class="band"><div class="wrap">
+  <div class="head"><h2>A project for every site.</h2></div>
   <div class="tour">
     <ul class="tour__list" role="tablist" aria-label="WinCraft screens">
       <li role="presentation"><button role="tab" aria-selected="true" data-shot="assets/tab-studio.jpg"><b>Your studio</b><small>Every site and quotation in one place.</small></button></li>
@@ -68,24 +91,37 @@
       <li role="presentation"><button role="tab" aria-selected="false" data-shot="assets/tab-types.jpg"><b>The window</b><small>Fixed, casement, sliding, folding, louvre or custom.</small></button></li>
       <li role="presentation"><button role="tab" aria-selected="false" data-shot="assets/tab-cards.jpg"><b>Every opening</b><small>By floor and room, each with its own mark.</small></button></li>
     </ul>
-    <div class="pane" role="tabpanel" aria-label="Selected screen"><img id="shot" src="assets/tab-studio.jpg" alt="Your studio in WinCraft on a tablet" width="900" height="1440" loading="lazy"></div>
+    <div class="tablet" role="tabpanel" aria-label="Selected screen"><img id="shot" src="assets/tab-studio.jpg" alt="Your studio in WinCraft on a tablet" width="900" height="1440" loading="lazy"></div>
   </div>
 </div></section>
 
-<section class="band"><div class="wrap">
-  <h2>A quotation,<br>not a diary page.</h2>
-  <p class="lede">Your logo, drawings, specifications and totals.</p>
-  <ul class="ticks"><li>GST inclusive or exclusive</li><li>Worksheet PDF</li><li>Excel schedules</li></ul>
-  <div class="paper"><img src="assets/quote-page2.jpg" alt="Quotation PDF page with the 1621 by 1324 mm sliding window" width="900" height="1274" loading="lazy"></div>
+<section class="band band--paper"><div class="wrap quote">
+  <div class="quote__copy">
+    <h2>A quotation, not a diary page.</h2>
+    <p class="lede">Your logo, drawings, specifications and totals.</p>
+    <ul class="ticks"><li>GST inclusive or exclusive</li><li>Worksheet PDF</li><li>Excel schedules</li></ul>
+  </div>
+  <figure class="sheet">
+    <ul class="sheet__notes" aria-hidden="true">
+      <li style="top:6%">Your logo</li>
+      <li style="top:16%">Client and site</li>
+      <li style="top:55%">The drawing</li>
+      <li style="top:70.5%">Glass and profile</li>
+      <li style="top:77.5%">Amount at your rate</li>
+    </ul>
+    <img src="assets/quote-page2.jpg" alt="Quotation PDF page with the 1621 by 1324 mm sliding window" width="900" height="1274" loading="lazy">
+  </figure>
 </div></section>
 
-<section class="band dark" id="video"><div class="wrap">
-  <h2>See it with a real laser.</h2>
-  <p class="lede">45 seconds, from the meter to the quotation.</p>
+<section class="band band--dark" id="video"><div class="wrap film">
   <div class="reel"><video src="assets/reel-laser.mp4" poster="assets/reel-poster.jpg" controls playsinline preload="none" aria-label="WinCraft with a Bluetooth laser measure, 45 second video"></video></div>
+  <div class="film__copy">
+    <h2>See it with a real laser.</h2>
+    <p class="lede">45 seconds, from the meter to the quotation.</p>
+  </div>
 </div></section>
 
-<section class="band" id="questions"><div class="wrap">
+<section class="band" id="questions"><div class="wrap split">
   <h2>Questions</h2>
   <div class="qs">
     <details><summary>Which devices does the beta run on?</summary><p>Android phones and tablets. The beta is Android only for now.</p></details>
@@ -96,9 +132,11 @@
   </div>
 </div></section>
 
-<section class="band grey"><div class="wrap">
-  <h2 id="beta">Join the Android beta.</h2>
-  <p class="lede">We add your Gmail to the Google Play test.</p>
+<section class="band band--paper"><div class="wrap split">
+  <div>
+    <h2 id="beta">Join the Android beta.</h2>
+    <p class="lede">We add your Gmail to the Google Play test.</p>
+  </div>
   <form id="f" class="signup" novalidate>
     <div id="fields">
       <div class="field"><label for="name">Your name</label><input id="name" name="name" autocomplete="name" required></div>
@@ -114,7 +152,7 @@
           <option>Architect or interior designer</option>
           <option>Other</option>
         </select></div>
-      <button class="pill" type="submit">Request beta access</button>
+      <button class="btn" type="submit">Request beta access</button>
       <p class="small" id="msg" role="status"></p>
       <p class="small">Used only for beta access. <a href="privacy-policy.html">Privacy policy</a></p>
     </div>
@@ -166,6 +204,58 @@ document.querySelectorAll('.tour__list button').forEach(b => b.addEventListener(
   document.querySelectorAll('.tour__list button').forEach(o => o.setAttribute('aria-selected', o === b));
   shot.src = b.dataset.shot; shot.alt = b.querySelector('b').textContent + ' in WinCraft';
 }));
+
+// Hero bench: the drawing follows the size; the price follows the rate the visitor types.
+const $ = id => document.getElementById(id);
+const sqft = (w, h) => w * h / 92903.04; // one formula: mm² to sq ft, no rounding of the size
+console.assert(sqft(1219.2, 1219.2).toFixed(2) === '16.00' && sqft(1621, 1324).toFixed(2) === '23.10', 'area formula');
+const inr = n => '₹' + n.toLocaleString('en-IN', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+let lit = ''; // which dimension the laser is filling: 'w', 'h' or ''
+function draw(w, h) {
+  const s = Math.min(430 / w, 320 / h), fw = w * s, fh = h * s, x = 110 + (430 - fw) / 2, y = 30 + (320 - fh) / 2;
+  const t = Math.min(14, fw / 9, fh / 9), sw = (fw - 2 * t) / 2, sh = fh - 2 * t, g = Math.min(11, sw / 5);
+  const sash = (sx, dir) => {
+    const cx = sx + sw / 2, cy = y + fh / 2, a = Math.min(sw * .28, 46) * dir, k = Math.min(15, sw / 8);
+    return `<rect x="${sx}" y="${y + t}" width="${sw}" height="${sh}" class="sash"/><rect x="${sx + g}" y="${y + t + g}" width="${sw - 2 * g}" height="${sh - 2 * g}" class="glass"/>` +
+      `<path d="M${cx - a} ${cy}H${cx + a}M${cx + a - k * dir} ${cy - k}L${cx + a} ${cy}L${cx + a - k * dir} ${cy + k}" class="arrow"/>`;
+  };
+  const by = y + fh + 34, lx = x - 34;
+  $('win').innerHTML =
+    `<rect x="${x}" y="${y}" width="${fw}" height="${fh}" class="frame"/>` + sash(x + t, 1) + sash(x + t + sw, -1) +
+    `<g class="dim${lit === 'w' ? ' lit' : ''}"><path d="M${x} ${by}H${x + fw}M${x} ${by - 6}v12M${x + fw} ${by - 6}v12"/><text x="${x + fw / 2}" y="${by + 26}" text-anchor="middle">${+w.toFixed(1)}</text></g>` +
+    `<g class="dim${lit === 'h' ? ' lit' : ''}"><path d="M${lx} ${y}V${y + fh}M${lx - 6} ${y}h12M${lx - 6} ${y + fh}h12"/><text x="${lx - 14}" y="${y + fh / 2 + 6}" text-anchor="end">${+h.toFixed(1)}</text></g>`;
+}
+function update() {
+  const w = +$('w').value, h = +$('h').value, r = +$('rate').value;
+  if (!(w > 0 && h > 0)) { $('area').textContent = '0.00'; $('price').textContent = 'Type a width and height'; return; }
+  draw(w, h);
+  $('area').textContent = sqft(w, h).toFixed(2);
+  $('price').textContent = r > 0 ? inr(sqft(w, h) * r) : 'Type your rate';
+}
+// Typing always wins: it stops a running laser.
+['w', 'h', 'rate'].forEach(id => $(id).addEventListener('input', () => { if (id !== 'rate') { run++; lit = ''; $('status').classList.remove('on'); $('statustext').textContent = 'Size typed by hand'; } update(); }));
+// The laser: two shots, width then height, the same sizes as the quotation below.
+let run = 0;
+function shoot(id, to, label) {
+  const el = $(id), from = +el.value || 1000, me = run, t0 = performance.now();
+  lit = id; $('statustext').textContent = label; $('status').classList.add('on');
+  return new Promise(done => requestAnimationFrame(function step(now) {
+    if (me !== run) return;
+    const p = Math.min(1, (now - t0) / 900), e = 1 - Math.pow(1 - p, 3);
+    el.value = Math.round(from + (to - from) * e); update();
+    p < 1 ? requestAnimationFrame(step) : setTimeout(done, 350);
+  }));
+}
+async function laser() {
+  const me = ++run;
+  $('w').value = $('h').value = 1000; update();
+  if (matchMedia('(prefers-reduced-motion: reduce)').matches) { $('w').value = 1621; $('h').value = 1324; }
+  else { await shoot('w', 1621, 'Laser: width sent'); await shoot('h', 1324, 'Laser: height sent'); }
+  if (me !== run) return;
+  lit = ''; $('status').classList.remove('on'); $('statustext').textContent = 'Filled from the laser: 1621 × 1324 mm'; update();
+}
+$('fire').addEventListener('click', laser);
+update(); setTimeout(laser, 700);
 </script>
 </body>
 </html>
