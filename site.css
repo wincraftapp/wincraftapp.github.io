@@ -166,9 +166,11 @@ video:focus-visible { outline: 2px solid #8fb0ff; outline-offset: 3px; }
   .read { grid-auto-flow: column; align-items: end; gap: 28px; }
   .read .read__src { display: none; }
   .nav__links a:not(.nav__cta) { display: none; }
-  .steps, .pair { grid-template-columns: minmax(0, 1fr); }
-  .steps { border-top: 0; margin-top: 40px; row-gap: 40px; }
-  .steps .step { padding-top: 0; }
+  .pair { grid-template-columns: minmax(0, 1fr); }
+  /* phones: the four steps become one swipe row; each card is 80% wide so the next one peeks in */
+  .steps { display: flex; gap: 14px; overflow-x: auto; scroll-snap-type: x mandatory; scroll-padding-inline: var(--pad); margin: 40px calc(-1 * var(--pad)) 0; padding: 0 var(--pad) 12px; border-top: 0; scrollbar-width: none; }
+  .steps::-webkit-scrollbar { display: none; }
+  .steps .step { flex: 0 0 80%; scroll-snap-align: start; padding-top: 0; }
   .steps .step::after, .steps .step:nth-child(n+3)::after { display: none; }
   .steps .step::before { display: block; position: static; margin-bottom: 8px; }
 }
